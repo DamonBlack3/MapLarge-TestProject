@@ -24,3 +24,6 @@ There are a couple helper classes for normalizing and validating paths
 
 ### Frontend
 While the instructions said pretty wasn't important, I did still want to at a minimum not be repulsed by it. That being said, my amount of frontend knowledge, especially when it comes to css, is fairly low. The frontend, both the HTML and JavaScript, remained almost entirely what was suggested by ChatGPT with my contributions primarily being slight rearrangements so that it looked a bit better to me.
+
+# Running the Project
+Before running the project, make sure you set the "RootPath" under "FileBrowser" in appsettings.json to whatever you want your root to be 
