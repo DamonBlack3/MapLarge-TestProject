@@ -19,7 +19,7 @@ internal sealed class DownloadEndpoint : BaseEndpoint
         ILogger<DownloadEndpoint> logger,
         IOptionsMonitor<FileBrowserOptions> options) =>
     {
-        var validationResult = PathValidationHelper.ValidateAndResolvePath(options, request.Path, checkFile: true);
+        var validationResult = PathValidationHelper.ValidateAndResolvePath(options, request.Path, checkDirectory: false, checkFile: true);
 
         if (!validationResult.IsSuccess)
             return validationResult.ErrorResult!;

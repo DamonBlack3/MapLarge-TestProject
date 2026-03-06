@@ -58,8 +58,8 @@ internal sealed class BrowseEndpoint : BaseEndpoint
 
         var response = new BrowseResponse(
             directories.Concat(files),
-            directories.Count(),
-            files.Count(),
+            directories.Count,
+            files.Count,
             files.Sum(f => f.Size)
         );
 
