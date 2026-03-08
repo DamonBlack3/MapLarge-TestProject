@@ -194,6 +194,74 @@
         .hiddenFile {
             display: none;
         }
+
+        /* Modal overlay */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .55);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .modal-overlay.open {
+                display: flex;
+            }
+
+        .modal {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            width: 380px;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, .4);
+        }
+
+        .modal h3 {
+            margin: 0 0 16px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .modal label {
+            display: block;
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+
+        .modal .field {
+            margin-bottom: 14px;
+        }
+
+        .modal select {
+            width: 100%;
+            background: rgba(255,255,255,.04);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 9px 10px;
+            border-radius: 10px;
+            outline: none;
+            font-size: 13px;
+        }
+
+            .modal select:focus {
+                border-color: rgba(96,165,250,.55);
+            }
+
+            .modal select option {
+                background: var(--panel);
+                color: var(--text);
+            }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-top: 18px;
+        }
     </style>
 </head>
 
@@ -227,13 +295,57 @@
                     <button id="chooseFileBtn" class="btn">Choose file</button>
                     <span id="chosenFile" class="subtitle"></span>
                 </div>
-                <button id="uploadBtn" class="btn primary">Upload</button>
+                <div class="row">
+                    <button id="uploadBtn" class="btn primary">Upload</button>
+                    <button id="newBtn" class="btn primary">New</button>
+                </div>
             </div>
 
             <ul id="fileList" class="list"></ul>
         </div>
     </div>
 
-    <script src="main.js"></script>
+    <!-- Create new item modal -->
+    <div id="createModal" class="modal-overlay">
+        <div class="modal">
+            <h3>Create New Item</h3>
+
+            <div class="field">
+                <label for="createType">Type</label>
+                <select id="createType">
+                    <option value="folder">📁 Folder</option>
+                    <option value="file">📄 File</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="createName">Name</label>
+                <input id="createName" class="input" placeholder="e.g. my-folder or notes" />
+            </div>
+
+            <div id="fileTypeField" class="field" style="display: none;">
+                <label for="createFileType">File Type</label>
+                <select id="createFileType">
+                    <option value=".txt">Text (.txt)</option>
+                    <option value=".json">JSON (.json)</option>
+                    <option value=".csv">CSV (.csv)</option>
+                    <option value=".xml">XML (.xml)</option>
+                    <option value=".md">Markdown (.md)</option>
+                    <option value=".html">HTML (.html)</option>
+                    <option value=".css">CSS (.css)</option>
+                    <option value=".js">JavaScript (.js)</option>
+                    <option value=".log">Log (.log)</option>
+                    <option value="">Other (no extension)</option>
+                </select>
+            </div>
+
+            <div class="modal-actions">
+                <button id="createCancelBtn" class="btn">Cancel</button>
+                <button id="createConfirmBtn" class="btn primary">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js" defer></script>
 </body>
 </html>
