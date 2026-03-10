@@ -1,0 +1,39 @@
+<div id="createModal" class="modal-overlay">
+    <div class="modal">
+        <h3>Create New Item</h3>
+
+        <div class="field">
+            <label for="createType">Type</label>
+            <select id="createType">
+                <option value="folder">📁 Folder</option>
+                <option value="file">📄 File</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label for="createName">Name</label>
+            <input id="createName" class="input" placeholder="e.g. my-folder or notes" />
+        </div>
+
+        <div id="fileTypeField" class="field" style="display: none;">
+            <label for="createFileType">File Type</label>
+            <select id="createFileType">
+                <option value=".txt">Text (.txt)</option>
+                <option value=".json">JSON (.json)</option>
+                <option value=".csv">CSV (.csv)</option>
+                <option value=".xml">XML (.xml)</option>
+                <option value=".md">Markdown (.md)</option>
+                <option value=".html">HTML (.html)</option>
+                <option value=".css">CSS (.css)</option>
+                <option value=".js">JavaScript (.js)</option>
+                <option value=".log">Log (.log)</option>
+                <option value="">Other (no extension)</option>
+            </select>
+        </div>
+
+        <div class="modal-actions">
+            <button id="createCancelBtn" class="btn">Cancel</button>
+            <button id="createConfirmBtn" class="btn primary">Create</button>
+        </div>
+    </div>
+</div>
